@@ -1,0 +1,161 @@
+<html>
+    <head>
+        <style>
+            button {
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            body {background-color: #f0f8ff}
+            #alpha {text-align: center}
+            #beta {text-align: center; padding: 20px}
+            #fac {background-color: #00BCFA}
+            #int {background-color: #888FD6}
+            #dif {background-color: #f7521E}
+            .flag {display: block}
+            #text {font-size: 100; text-align: center}
+        </style>
+    </head>
+    <body>
+        <div id="beta">
+            <button id="fac" onclick= "flagging('f')">Fácil</button>
+            <button id="int" onclick= "flagging('i')">Intermedio</button>
+            <button id="dif" onclick= "flagging('d')">Difícil</button>
+        </div>
+        <div id="alpha" onclick="reveal()">
+            <img class="flag" id="albania"         src="flags/albania.png"         width="500px"></img>
+            <img class="flag" id="argentina"       src="flags/argentina.png"       width="500px"></img>
+            <img class="flag" id="brazil"          src="flags/brazil.png"          width="500px"></img>
+            <img class="flag" id="canada"          src="flags/canada.png"          width="500px"></img>
+            <img class="flag" id="chile"           src="flags/chile.png"           width="500px"></img>
+            <img class="flag" id="china"           src="flags/china.png"           width="500px"></img>
+            <img class="flag" id="estonia"         src="flags/estonia.png"         width="500px"></img>
+            <img class="flag" id="finland"         src="flags/finland.png"         width="500px"></img>
+            <img class="flag" id="france"          src="flags/france.png"          width="500px"></img>
+            <img class="flag" id="greece"          src="flags/greece.png"          width="500px"></img>
+            <img class="flag" id="hk"              src="flags/hk.png"              width="500px"></img>
+            <img class="flag" id="iceland"         src="flags/iceland.png"         width="500px"></img>
+            <img class="flag" id="israel"          src="flags/israel.png"          width="500px"></img>
+            <img class="flag" id="liech"           src="flags/liech.png"           width="500px"></img>
+            <img class="flag" id="macau"           src="flags/macau.png"           width="500px"></img>
+            <img class="flag" id="malta"           src="flags/malta.png"           width="500px"></img>
+            <img class="flag" id="mexico"          src="flags/mexico.png"          width="500px"></img>
+            <img class="flag" id="netherlands"     src="flags/netherlands.png"     width="500px"></img>
+            <img class="flag" id="nm"              src="flags/nm.png" width="500px"></img>
+            <img class="flag" id="norway"          src="flags/norway.png"          width="500px"></img>
+            <img class="flag" id="sk"              src="flags/sk.png"     width="500px"></img>
+            <img class="flag" id="spain"           src="flags/spain.png"           width="500px"></img>
+            <img class="flag" id="sl"              src="flags/sri lanka.png"       width="500px"></img>
+            <img class="flag" id="sweden"          src="flags/sweden.png"          width="500px"></img>
+            <img class="flag" id="switzerland"     src="flags/switzerland.png"     width="500px"></img>
+            <img class="flag" id="thailand"        src="flags/thailand.png"        width="500px"></img>
+            <img class="flag" id="uk"              src="flags/uk.png"              width="500px"></img>
+            <img class="flag" id="uruguay"         src="flags/uruguay.png"         width="500px"></img>
+            <img class="flag" id="usa"             src="flags/usa.png"             width="500px"></img>
+            <img class="flag" id="vietnam"         src="flags/vietnam.png"         width="500px"></img>
+        </div>
+        <div id="text">Test</div>
+    </body>
+    <script>
+        Array(...document.getElementsByClassName("flag")).forEach(x => {x.style= "display: none !important"})
+        let a = ["argentina","brazil","chile","china","usa","france","mexico","spain","canada","uk"]
+        let b = ["israel", "finland", "norway", "iceland", "sweden", "sk", "thailand", "vietnam", "switzerland", "netherlands"]
+        let c = ["estonia", "albania", "liech", "malta", "hk", "sr", "nm", "greece", "macau"]
+        
+        function flagging(mod) {
+            document.getElementById("text").style = "display: none"
+            country = ""
+            
+            if(mod == "f") {country = a[Math.floor(Math.random() * a.length)]}
+            if(mod == "i") {country = b[Math.floor(Math.random() * b.length)]}
+            if(mod == "d") {country = c[Math.floor(Math.random() * c.length)]}
+            
+            arr = Array(...document.getElementsByClassName("flag"))
+            arr.forEach(x => {x.style= "display: none !important"})
+            arr.find(x => x.id == country).style = "display: initial !important"
+            text(country)
+        }
+        function text(t) {
+            switch(t) {
+                case "sk":
+                    t = "South Korea"
+                    break;
+                case "nm":
+                    t = "Macedonia del Norte"
+                    break;
+                case "uk":
+                    t = "Reino Unido"
+                    break;
+                case "usa":
+                    t = "Estados Unidos"
+                    break;
+                case "hk":
+                    t = "Hong Kong"
+                    break;
+                case "sr":
+                    t = "Sri Lanka"
+                    break;
+                case "brazil":
+                    t = "Brasil"
+                    break;
+                case "france":
+                    t = "Francia"
+                    break;
+                case "mexico":
+                     t = "México"
+                    break;
+                case "spain":
+                    t = "España"
+                    break;
+                case "canada":
+                    t = "Canadá"
+                    break;
+                case "finland":
+                    t = "Finlandia"
+                    break;
+                case "iceland":
+                    t = "Islandia"
+                    break;
+                case "norway":
+                    t = "Noruega"
+                    break;
+                case "sweden":
+                    t = "Suecia"
+                    break;
+                case "thailand":
+                    t = "Tailandia"
+                    break;
+                case "switzerland":
+                    t = "Suiza"
+                    break;
+                case "netherlands":
+                    t = "Países Bajos"
+                    break;
+                case "liech":
+                    t = "Liechtenstein"
+                    break;
+                case "malta":
+                    t = "Orden de Malta"
+                    break;
+                case "greece":
+                    t = "Grecia"
+                    break;
+                case "macau":
+                    t = "Macao"
+                    break;
+                default:
+                    t = t.substring(0, 1).toUpperCase() + t.substring(1)
+                    
+                    break;
+                
+            }
+            document.getElementById("text").innerText = t
+        }
+        
+        function reveal() {document.getElementById("text").style = "display: block"}
+    </script>
+</html>
