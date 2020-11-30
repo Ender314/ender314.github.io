@@ -65,24 +65,26 @@
         let a = ["argentina","brazil","chile","china","usa","france","mexico","spain","canada","uk"]
         let b = ["israel", "finland", "norway", "iceland", "sweden", "sk", "thailand", "vietnam", "switzerland", "netherlands"]
         let c = ["estonia", "albania", "liech", "malta", "hk", "sl", "nm", "greece", "macau"]
-        
+        let last
         function flagging(mod) {
             document.getElementById("text").style = "display: none"
-            country = ""
-            
-            if(mod == "f") {country = a[Math.floor(Math.random() * a.length)]}
-            if(mod == "i") {country = b[Math.floor(Math.random() * b.length)]}
-            if(mod == "d") {country = c[Math.floor(Math.random() * c.length)]}
-            
+            let country 
+            while(!country) {
+                if(mod == "f") {country = a[Math.floor(Math.random() * a.length)]}
+                if(mod == "i") {country = b[Math.floor(Math.random() * b.length)]}
+                if(mod == "d") {country = c[Math.floor(Math.random() * c.length)]}
+                if(country == last) {country = ""}
+            }
             arr = Array(...document.getElementsByClassName("flag"))
             arr.forEach(x => {x.style= "display: none !important"})
             arr.find(x => x.id == country).style = "display: initial !important"
+            last = country
             text(country)
         }
         function text(t) {
             switch(t) {
                 case "sk":
-                    t = "South Korea"
+                    t = "Corea del Sur"
                     break;
                 case "nm":
                     t = "Macedonia del Norte"
@@ -96,7 +98,7 @@
                 case "hk":
                     t = "Hong Kong"
                     break;
-                case "sr":
+                case "sl":
                     t = "Sri Lanka"
                     break;
                 case "brazil":
